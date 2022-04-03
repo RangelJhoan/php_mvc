@@ -1,4 +1,7 @@
 <?php
-require('Controller/VerUsuarioController.php');
+
+require_once 'libs/app.php';
+
+$app = new App();
 
 ?>
