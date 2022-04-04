@@ -7,6 +7,11 @@ class Nuevo extends Controller{
         $this->view->render('nuevo/index');
     }
 
+    function registrarAlumno(){
+        echo "Alumno creado";
+        $this->model->insert();
+    }
+
 }
 
 ?>
