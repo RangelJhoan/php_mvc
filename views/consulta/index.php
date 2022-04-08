@@ -29,8 +29,8 @@
                 <tr>
                     <td><?php echo $alumno->numeroDocumento; ?></td>
                     <td><?php echo $alumno->nombre; ?></td>
-                    <td><a href="#">Editar</a></td>
-                    <td><a href="#">Eliminar</a></td>
+                    <td><a href="<?php echo constant('URL') . 'consulta/verAlumno/' . $alumno->id; ?>">Editar</a></td>
+                    <td><a href="<?php echo constant('URL') . 'consulta/eliminarAlumno/' . $alumno->id; ?>">Eliminar</a></td>
                 </tr>
                 <?php
                 }
