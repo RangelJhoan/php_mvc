@@ -7,12 +7,39 @@
     <title>Vista Consulta</title>
 </head>
 <body>
-    <?php require 'views/header.php' ?>
+    <?php require 'views/header.php'?>
 
     <div id="main">
         <h1 class="center">Sección de consulta</h1>
+
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Número Documento</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include_once 'models/usuario.php';
+                foreach ($this->alumnos as $row) {
+                    $alumno = new Usuario();
+                    $alumno = $row;
+                ?>
+                <tr>
+                    <td><?php echo $alumno->numeroDocumento; ?></td>
+                    <td><?php echo $alumno->nombre; ?></td>
+                    <td><a href="#">Editar</a></td>
+                    <td><a href="#">Eliminar</a></td>
+                </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+
     </div>
 
-    <?php require 'views/footer.php' ?>
+    <?php require 'views/footer.php'?>
 </body>
 </html>

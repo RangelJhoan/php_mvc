@@ -4,6 +4,10 @@ class Nuevo extends Controller{
 
     function __construct(){
         parent::__construct();
+        $this->view->mensaje = "";
+    }
+
+    function render(){
         $this->view->render('nuevo/index');
     }
 
@@ -11,12 +15,16 @@ class Nuevo extends Controller{
         $numeroDocumento    = $_POST['numeroDocumento'];
         $nombre             = $_POST['nombre'];
 
+        $mensaje = "";
+
         if($this->model->insert(['numeroDocumento' => $numeroDocumento, 'nombre' => $nombre])){
-            echo "Alumno creado";
+            $mensaje = "Nuevo alumno creado";
         }else{
-            echo "Error al crear el alumno";
+            $mensaje = "Error al crear al alumno";
         }
        
+        $this->view->mensaje = $mensaje;
+        $this->render();
     }
 
 }

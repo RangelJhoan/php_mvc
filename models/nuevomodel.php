@@ -13,7 +13,7 @@ class NuevoModel extends Model
         //Insertar datos en la BD
         try {
             $query = $this->db->connect()->prepare('INSERT INTO usuario (numero_documento, nombre, id_tipousuario) VALUES (:numeroDocumento, :nombre, 1)');
-            $query->execute(['numeroocumento' => $datos['numeroDocumento'], 'nombre' => $datos['nombre']]);
+            $query->execute(['numeroDocumento' => $datos['numeroDocumento'], 'nombre' => $datos['nombre']]);
             return true;
         } catch (PDOException $e) {
             echo "<script>console.log(\"{$e->getMessage()}\");</script>";
