@@ -13,16 +13,16 @@
         <h1 class="center">Sección de nuevo</h1>
         <form action="<?php echo constant('URL') ?>nuevo/registrarAlumno" method="POST">
             <p>
-                <label for="matricula">Matrícula</label><br>
-                <input type="text" name="matricula" id="">
+                <label for="numeroDocumento">Número de documento</label><br>
+                <input type="text" name="numeroDocumento" required>
             </p>
             <p>
                 <label for="Nombre">Nombre</label><br>
-                <input type="text" name="nombre" id="">
+                <input type="text" name="nombre" required>
             </p>
             <p>
                 <label for="Apellido">Apellido</label><br>
-                <input type="text" name="apellido" id="">
+                <input type="text" name="apellido" required>
             </p>
             <p>
                 <input type="submit" value="Registrar nuevo alumno">
