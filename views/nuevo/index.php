@@ -16,7 +16,7 @@
             <?php echo $this->mensaje; ?>
         </div>
 
-        <form action="<?php echo constant('URL') ?>nuevo/registrarAlumno" method="POST">
+        <form action="<?php echo constant('URL') ?>nuevo/registrarUsuario" method="POST">
             <p>
                 <label for="numeroDocumento">Número de documento</label><br>
                 <input type="text" name="numeroDocumento" required>
@@ -30,7 +30,7 @@
                 <input type="text" name="apellido" required>
             </p>
             <p>
-                <input type="submit" value="Registrar nuevo alumno">
+                <input type="submit" value="Registrar nuevo usuario">
             </p>
         </form>
     </div>

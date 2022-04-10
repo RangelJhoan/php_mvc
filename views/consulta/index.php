@@ -24,16 +24,16 @@
             <tbody id="tbody-usuarios">
                 <?php
                 include_once 'models/usuario.php';
-                foreach ($this->alumnos as $row) {
-                    $alumno = new Usuario();
-                    $alumno = $row;
+                foreach ($this->usuarios as $row) {
+                    $usuario = new Usuario();
+                    $usuario = $row;
                 ?>
-                <tr id="fila-<?php echo $alumno->id;?>">
-                    <td><?php echo $alumno->numeroDocumento; ?></td>
-                    <td><?php echo $alumno->nombre; ?></td>
-                    <td><a href="<?php echo constant('URL') . 'consulta/verAlumno/' . $alumno->id; ?>">Editar</a></td>
-                    <td><button class="bEliminar" data-id="<?php echo $alumno->id;?>" data-nombre = "<?php echo $alumno->nombre; ?>">Eliminar</button></td>
-                    <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarAlumno/' . $alumno->id; ?>">Eliminar</a></td> -->
+                <tr id="fila-<?php echo $usuario->id;?>">
+                    <td><?php echo $usuario->numeroDocumento; ?></td>
+                    <td><?php echo $usuario->nombre; ?></td>
+                    <td><a href="<?php echo constant('URL') . 'consulta/verUsuario/' . $usuario->id; ?>">Editar</a></td>
+                    <td><button class="bEliminar" data-id="<?php echo $usuario->id;?>" data-nombre = "<?php echo $usuario->nombre; ?>">Eliminar</button></td>
+                    <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarUsuario/' . $usuario->id; ?>">Eliminar</a></td> -->
                 </tr>
                 <?php
                 }

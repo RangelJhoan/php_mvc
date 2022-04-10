@@ -8,7 +8,7 @@ botones.forEach(boton => {
         const confirm = window.confirm("¿Deseas eliminar al usuario "+nombre+"?")
 
         if(confirm){
-            httpRequest("http://localhost/php_mvc/consulta/eliminarAlumno/"+id, function(){
+            httpRequest("http://localhost/php_mvc/consulta/eliminarUsuario/"+id, function(){
                 document.querySelector("#respuesta").innerHTML = this.responseText
 
                 const tbody = document.querySelector("#tbody-usuarios")

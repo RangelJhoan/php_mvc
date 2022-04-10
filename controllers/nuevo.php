@@ -11,16 +11,16 @@ class Nuevo extends Controller{
         $this->view->render('nuevo/index');
     }
 
-    function registrarAlumno(){
+    function registrarUsuario(){
         $numeroDocumento    = $_POST['numeroDocumento'];
         $nombre             = $_POST['nombre'];
 
         $mensaje = "";
 
         if($this->model->insert(['numeroDocumento' => $numeroDocumento, 'nombre' => $nombre])){
-            $mensaje = "Nuevo alumno creado";
+            $mensaje = "Nuevo usuario creado";
         }else{
-            $mensaje = "Error al crear al alumno";
+            $mensaje = "Error al crear al usuario";
         }
        
         $this->view->mensaje = $mensaje;

@@ -4,40 +4,40 @@ class Consulta extends Controller{
 
     function __construct(){
         parent::__construct();
-        $this->view->alumnos = [];
+        $this->view->usuarios = [];
     }
 
     function render(){
-        $alumnos = $this->model->get();
-        $this->view->alumnos = $alumnos;
+        $usuarios = $this->model->get();
+        $this->view->usuarios = $usuarios;
         $this->view->render('consulta/index');
     }
 
-    function verAlumno($param = null){
+    function verUsuario($param = null){
         $idUsuario = $param[0];
-        $alumno = $this->model->getById($idUsuario);
+        $usuario = $this->model->getById($idUsuario);
 
         session_start();
-        $_SESSION['idAlumno'] = $alumno->id;
-        $_SESSION['id_verAlumno'] = $alumno->numeroDocumento;
-        $this->view->alumno = $alumno;
+        $_SESSION['idUsuario'] = $usuario->id;
+        $_SESSION['id_verUsuario'] = $usuario->numeroDocumento;
+        $this->view->usuario = $usuario;
         $this->view->mensaje = "";
         $this->view->render('consulta/detalle');
     }
 
-    function actualizarAlumno(){
+    function actualizarUsuario(){
         session_start();
-        $id = $_SESSION['idAlumno'];
-        $numeroDocumento = $_SESSION['id_verAlumno'];
+        $id = $_SESSION['idUsuario'];
+        $numeroDocumento = $_SESSION['id_verUsuario'];
         $nombre = $_POST['nombre'];
-        unset($_SESSION['id_verAlumno']);
-        unset($_SESSION['idAlumno']);
+        unset($_SESSION['id_verUsuario']);
+        unset($_SESSION['idUsuario']);
 
         if($this->model->update(['id' => $id, 'numeroDocumento' => $numeroDocumento, 'nombre' => $nombre])){
-            $alumno = new Usuario();
-            $alumno->numeroDocumento = $numeroDocumento;
-            $alumno->nombre = $nombre;
-            $this->view->alumno = $alumno;
+            $usuario = new Usuario();
+            $usuario->numeroDocumento = $numeroDocumento;
+            $usuario->nombre = $nombre;
+            $this->view->usuario = $usuario;
             $this->view->mensaje = "Usuario actualizado correctamente";
         }else{
             $this->view->mensaje = "Error al actualizar el usuario";
@@ -45,7 +45,7 @@ class Consulta extends Controller{
         $this->view->render('consulta/detalle');
     }
 
-    function eliminarAlumno($param = null){
+    function eliminarUsuario($param = null){
         $id = $param[0];
         if($this->model->delete($id)){
             //$this->view->mensaje = "Usuario eliminado correctamente";
