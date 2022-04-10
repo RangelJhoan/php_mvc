@@ -12,6 +12,8 @@
     <div id="main">
         <h1 class="center">Sección de consulta</h1>
 
+        <div id="respuesta" class="center"></div>
+
         <table width="100%">
             <thead>
                 <tr>
@@ -19,18 +21,19 @@
                     <th>Nombre</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody-usuarios">
                 <?php
                 include_once 'models/usuario.php';
                 foreach ($this->alumnos as $row) {
                     $alumno = new Usuario();
                     $alumno = $row;
                 ?>
-                <tr>
+                <tr id="fila-<?php echo $alumno->id;?>">
                     <td><?php echo $alumno->numeroDocumento; ?></td>
                     <td><?php echo $alumno->nombre; ?></td>
                     <td><a href="<?php echo constant('URL') . 'consulta/verAlumno/' . $alumno->id; ?>">Editar</a></td>
-                    <td><a href="<?php echo constant('URL') . 'consulta/eliminarAlumno/' . $alumno->id; ?>">Eliminar</a></td>
+                    <td><button class="bEliminar" data-id="<?php echo $alumno->id;?>" data-nombre = "<?php echo $alumno->nombre; ?>">Eliminar</button></td>
+                    <!-- <td><a href="<?php echo constant('URL') . 'consulta/eliminarAlumno/' . $alumno->id; ?>">Eliminar</a></td> -->
                 </tr>
                 <?php
                 }
@@ -41,5 +44,6 @@
     </div>
 
     <?php require 'views/footer.php'?>
+    <script src="<?php echo constant('URL')?>public/js/main.js"></script>
 </body>
 </html>

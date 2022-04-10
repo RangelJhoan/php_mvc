@@ -48,11 +48,14 @@ class Consulta extends Controller{
     function eliminarAlumno($param = null){
         $id = $param[0];
         if($this->model->delete($id)){
-            $this->view->mensaje = "Usuario eliminado correctamente";
+            //$this->view->mensaje = "Usuario eliminado correctamente";
+            $mensaje = "Usuario eliminado correctamente";
         }else{
-            $this->view->mensaje = "Error al eliminar el usuario";
+            //$this->view->mensaje = "Error al eliminar el usuario";
+            $mensaje = "Error al eliminar el usuario";
         }
-        $this->render();
+
+        echo $mensaje;
     }
 
 }
